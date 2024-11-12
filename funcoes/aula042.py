@@ -8,6 +8,7 @@
 # desfazer = [] -> Refazer ['caminhar', 'fazer café']
 # refazer = todo ['fazer café']
 # refazer = todo ['fazer café', 'caminhar']
+import json
 
 def lista_tarefas():
     todo = []
@@ -42,6 +43,11 @@ def lista_tarefas():
         else:
             todo.append(escolha)
             print('Tarefa adicionada com sucesso!')
+
+    print(todo)
+    with open('todo-list', 'w') as arquivo:
+        json.dump(todo, arquivo, indent=2)
+        arquivo.seek(0, 0)
 
 
 lista_tarefas()
